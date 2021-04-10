@@ -25,8 +25,8 @@ export default class App extends Component {
     });
     return (
       <MuiThemeProvider theme={theme}>
-            <CssBaseline />
-            <Layout>
+        <CssBaseline />
+        <Layout>
         <Route exact path='/' component={Home} />
         <Route exact path='/search' component={Attendee} />
         <Route path='/counter' component={Counter} />

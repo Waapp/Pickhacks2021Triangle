@@ -26,6 +26,11 @@ namespace VendorFriendFrontend.Controllers
         {
             return await _context.Vendors.ToListAsync();
         }
+        [HttpGet("{vendorName}/{eventId}")]
+        public async Task<ActionResult<IEnumerable<Vendor>>> GetVendorsByEventAndName(string vendorName, int eventId)
+        {
+            return await _context.Vendors.Where(x => x.EventId == eventId && x.VendorName == vendorName).ToListAsync();
+        }
 
         // GET: api/Vendors/5
         [HttpGet("{id}")]

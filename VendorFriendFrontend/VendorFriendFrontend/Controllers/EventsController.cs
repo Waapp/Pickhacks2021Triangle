@@ -39,7 +39,7 @@ namespace VendorFriendFrontend.Controllers
             }
             catch
             {
-                @event = await _context.Events.Where(x => x.EventActive == true && x.EventName == id).ToListAsync();
+                @event = await _context.Events.Where(x => x.EventName == id).ToListAsync();
             }
 
             if (@event == null)
