@@ -38,11 +38,11 @@ class search extends Component {
     static displayName = search.name;
     constructor(props) {
         super(props);
-        this.state = { products: [], loading: true };
+        this.state = { vendors: [], loading: true, eventName: '' };
       }
-
-    Searched(productName) {
-        this.populateEvents(productName);
+    async Searched(productName) {
+        this.getEvent(this.state.eventName, productName);
+        
     }
 
 render() {
@@ -51,7 +51,11 @@ render() {
         <div className={classes.divStyle}>
             <form className={classes.fieldStyle} autoComplete="on">
                 <Paper elevation={3} className={classes.paperStyle}>
-                <InputBase placeholder="Search for products…" 
+                <InputBase placeholder="Type name of event" 
+                    inputProps={{ 'aria-label': 'search'}}
+                    onChange={(ev)=>{
+                        this.state.eventName = ev.target.value}}/>
+                <InputBase placeholder="Type name of product" 
                     inputProps={{ 'aria-label': 'search'}}
                     onKeyPress={(ev) => {
                         if (ev.key === 'Enter') {
@@ -63,19 +67,29 @@ render() {
                 {this.state.loading ? 
                 <p><em>Loading...</em></p>:
                 
-                this.state.products.map((event) => (
-                    <Card variant="outlined" className={classes.cardStyle}>{event.productName}</Card>
+                this.state.vendors.map((vendor) => (
+                    <Card variant="outlined" className={classes.cardStyle}>{vendor.vendorName}</Card>
                 ))
                 }
             </form>
         </div>
     );
   }
-  async populateEvents(productName) {
-    const response = await fetch(`api/Vendors/${productName}/${productName.eventId}`);
+  async populateProducts(productName, eventId) {
+    const response = await fetch(`api/Vendors/Search/${productName}/${eventId}`);
       const data = await response.json();
       console.log(data)
-    this.setState({ products: data, loading: false });
+    this.setState({ vendors: data, loading: false });
+  }
+  async getEvent(eventName, productName) {
+    const requestOptions = {
+        method: 'Get',
+        headers: { 'Content-Type': 'application/json' },
+    }
+    const response = await fetch(`api/Events/${eventName}`, requestOptions);
+    const data = await response.json();
+    console.log(data[0].eventId)
+    this.populateProducts(productName, data[0].eventId);
   }
 }
 
