@@ -10,6 +10,7 @@ export default createMuiTheme({
   }
 });
 
+// I have no idea if this works as intended, but i'm gonna keep coding
 export default buttonStyling = {
   background: {
     primary: "blue",
@@ -38,5 +39,10 @@ export default buttonStyling = {
 };
 
 export default actualBackground = {
-
+  background: {
+    primary: "black"
+  }
 }
+
+// Backgrounds
+// 
