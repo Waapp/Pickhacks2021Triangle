@@ -29,9 +29,18 @@ namespace VendorFriendFrontend.Controllers
 
         // GET: api/Events/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Event>> GetEvent(int id)
+        public async Task<ActionResult<IEnumerable<Event>>> GetEvent(string id)
         {
-            var @event = await _context.Events.FindAsync(id);
+            var @event= await _context.Events.Where(x => x.EventId == 0).ToListAsync(); ;
+            try
+            {
+                int id2 = Convert.ToInt32(id);
+                @event = await _context.Events.Where(x=> x.EventId == id2).ToListAsync();
+            }
+            catch
+            {
+                @event = await _context.Events.Where(x => x.EventActive == true && x.EventName == id).ToListAsync();
+            }
 
             if (@event == null)
             {

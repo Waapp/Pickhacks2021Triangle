@@ -18,22 +18,22 @@ const useStyles = theme => ({
     },
 });
 
-class Home extends Component {
-    static displayName = Home.name;
+class Vendor extends Component {
+    static displayName = Vendor.name;
 
 render() {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
-            <Button variant="contained" color="primary" component={Link} to="/search" className={classes.buttonStyle}>
-                I am an attendee
-          </Button>
-            <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle}>
-                I am a vendor
-          </Button>
+            <Button variant="contained" color="primary" component={Link} to="/" className={classes.buttonStyle}>
+            I already have a vendor account
+            </Button>
+            <Button variant="contained" color="primary" component={Link} to="/vendor/request" className={classes.buttonStyle}>
+            I'm requesting a vendor account at an event
+            </Button>
       </div>
     );
   }
 }
 
-export default withStyles(useStyles)(Home);
+export default withStyles(useStyles)(Vendor);
