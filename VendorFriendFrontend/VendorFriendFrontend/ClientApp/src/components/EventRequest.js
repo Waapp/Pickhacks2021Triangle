@@ -14,11 +14,12 @@ const useStyles = theme => ({
         flexDirection: "column",
     },
     buttonStyle: {
-        margin: "4vh",
-        height: "10vh",
-        marginTop: "5vh",
-        fontSize: "3vh"
-    },
+      margin: "4vh",
+      height: "10vh",
+      marginTop: "20%",
+      fontSize: "3",
+      Wrap: "True"
+  },
     paperStyle: {
         margin: "4vh",
         padding: "1vh",

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import Home from './components/Home';
-import Attendee from './components/search';
+import Attendee from './components/Products';
 import { createMuiTheme, makeStyles, MuiThemeProvider, withStyles} from '@material-ui/core/styles';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
@@ -30,7 +30,7 @@ export default class App extends Component {
         <CssBaseline />
         <Layout>
         <Route exact path='/' component={Home} />
-        <Route exact path='/search' component={Attendee} />
+        <Route exact path='/products' component={Attendee} />
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
         <Route exact path='/vendor' component={Vendor} />

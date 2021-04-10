@@ -10,12 +10,15 @@ const useStyles = theme => ({
         display: "flex",
         flexDirection: "column",
     },
+    
     buttonStyle: {
         margin: "4vh",
         height: "10vh",
-        marginTop: "5vh",
-        fontSize: "3vh"
+        marginTop: "20%",
+        fontSize: "3",
+        Wrap: "True"
     },
+    
 });
 
 class Home extends Component {
@@ -25,7 +28,7 @@ render() {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
-            <Button variant="contained" color="primary" component={Link} to="/search" className={classes.buttonStyle}>
+            <Button variant="contained" color="primary" component={Link} to="/products" className={classes.buttonStyle}>
                 I am an attendee
           </Button>
             <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle}>
