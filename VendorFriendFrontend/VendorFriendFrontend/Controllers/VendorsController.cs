@@ -32,6 +32,20 @@ namespace VendorFriendFrontend.Controllers
             return await _context.Vendors.Where(x => x.EventId == eventId && x.VendorName == vendorName).ToListAsync();
         }
 
+        [HttpGet("{productName}/{eventId}")]
+        public IEnumerable<Vendor> GetProductsByEventAndName(string productName, int eventId)
+        {
+            var vendors = _context.Events.Find(eventId).Vendors;
+            foreach(var vendor in vendors)
+            {
+                if(vendor.Products.Where(x => x.ProductName == productName) == null)
+                {
+                    vendors.Remove(vendor);
+                }
+            }
+            return vendors.AsEnumerable<Vendor>();
+        }
+
         // GET: api/Vendors/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Vendor>> GetVendor(int id)

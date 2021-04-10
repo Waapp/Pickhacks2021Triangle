@@ -13,6 +13,7 @@ namespace VendorFriendFrontend.Models
         public int? ProductQuantity { get; set; }
         public bool? ProductAvailableOnline { get; set; }
         public int? VendorId { get; set; }
+        public string ProductName { get; set; }
 
         public virtual Vendor Vendor { get; set; }
     }
