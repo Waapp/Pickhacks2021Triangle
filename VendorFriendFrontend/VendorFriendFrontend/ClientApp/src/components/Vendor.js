@@ -25,7 +25,7 @@ render() {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
-            <Button variant="contained" color="primary" component={Link} to="/" className={classes.buttonStyle}>
+            <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle}>
             I already have a vendor account
             </Button>
             <Button variant="contained" color="primary" component={Link} to="/vendor/request" className={classes.buttonStyle}>
