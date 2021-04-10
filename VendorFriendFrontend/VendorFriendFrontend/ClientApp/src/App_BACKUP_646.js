@@ -6,9 +6,12 @@ import Attendee from './components/search';
 import { createMuiTheme, makeStyles, MuiThemeProvider, withStyles} from '@material-ui/core/styles';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
-import CssBaseline from '@material-ui/core/CssBaseline';
+<<<<<<< HEAD
 import Vendor from './components/Vendor';
 import VendorRequest from './components/VendorRequest';
+=======
+import CssBaseline from '@material-ui/core/CssBaseline';
+>>>>>>> 3542982a320caa86eaac8961c5b749a9f64efb3a
 
 import './custom.css'
 
@@ -31,10 +34,14 @@ export default class App extends Component {
         <Route exact path='/search' component={Attendee} />
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
+<<<<<<< HEAD
         <Route exact path='/vendor' component={Vendor} />
         <Route path='/vendor/request' component={VendorRequest} />
+      </Layout>
+=======
         </Layout>
       </MuiThemeProvider>
+>>>>>>> 3542982a320caa86eaac8961c5b749a9f64efb3a
     );
   }
 }
