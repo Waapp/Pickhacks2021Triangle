@@ -7,6 +7,7 @@ import InputProps from '@material-ui/core/Input';
 import Card from '@material-ui/core/Card'
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase'
+import Button from '@material-ui/core/Button'
 
 const useStyles = theme => ({
     divStyle: {
@@ -31,6 +32,11 @@ const useStyles = theme => ({
     },
     cardStyle: {
         
+    },
+    backButtonStyle: {
+        position: "absolute",
+        bottom: "5%",
+        left: "5%"
     }
 });
 
@@ -72,6 +78,9 @@ render() {
                 ))
                 }
             </form>
+            <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.backButtonStyle}>
+            Back
+            </Button>
         </div>
     );
   }

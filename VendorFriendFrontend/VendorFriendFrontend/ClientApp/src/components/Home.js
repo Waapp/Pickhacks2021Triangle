@@ -28,7 +28,7 @@ render() {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
-            <Button variant="contained" color="primary" component={Link} to="/products" className={classes.buttonStyle}>
+          <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.buttonStyle}>
                 I am an attendee
           </Button>
             <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle}>
