@@ -29,10 +29,18 @@ class Vendor extends Component {
     static displayName = Vendor.name;
     constructor(props) {
         super(props);
-        this.state = { products: [], loading: true };
+        this.state = {products: [], loading: true, vendorName: this.props.match.params.vendorName};
       }
+    
+    componentDidMount() {
+        if (this.state.vendorName != null)
+        {
+            console.log(this.state.vendorName)
+            this.populateProducts(this.state.vendorName)
+        }
+    }
 
-render() {
+    render() {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
@@ -42,12 +50,18 @@ render() {
             <Button variant="contained" color="primary" component={Link} to="/" className={classes.backButtonStyle}>
             Back
             </Button>
-            {this.state.products.map((event) => (
-                <Card variant="outlined" className={classes.cardStyle}>{event.Vendor}</Card>
+            {this.state.products.map((product) => (
+                <Card variant="outlined" className={classes.cardStyle}>{product.productName}</Card>
             ))
             }
       </div>
     );
+  }
+  async populateProducts(vendorName) {
+    const response = await fetch(`api/Products/${vendorName}`);
+      const data = await response.json();
+      console.log(data)
+    this.setState({ products: data, loading: false });
   }
 }
 

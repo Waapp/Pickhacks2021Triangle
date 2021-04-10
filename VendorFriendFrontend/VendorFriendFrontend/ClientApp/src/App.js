@@ -39,6 +39,7 @@ export default class App extends Component {
         <Route exact path='/vendor/request' component={VendorRequest} />
         <Route path='/register_event' component={EventRequest} />
         <Route path='/vendor/request/:eventName' component={VendorRequestForm} />
+        <Route path='/vendor/:vendorName' component={Vendor} />
         </Layout>
       </MuiThemeProvider>
     );

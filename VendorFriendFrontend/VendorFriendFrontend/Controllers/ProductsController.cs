@@ -29,16 +29,21 @@ namespace VendorFriendFrontend.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public IEnumerable<Product> GetProduct(string id)
         {
-            var product = await _context.Products.FindAsync(id);
-
-            if (product == null)
+            var products = _context.Products.Where(x => x.ProductId == 0).ToList(); ;
+            try
             {
-                return NotFound();
+                int id2 = Convert.ToInt32(id);
+                products = _context.Products.Where(x => x.ProductId == id2).ToList();
+            }
+            catch
+            {
+                int vendorId = _context.Vendors.Where(x => x.VendorName == id).First().VendorId;
+                products = _context.Products.Where(x => x.VendorId == vendorId).ToList();
             }
 
-            return product;
+            return products.AsEnumerable<Product>();
         }
 
 
