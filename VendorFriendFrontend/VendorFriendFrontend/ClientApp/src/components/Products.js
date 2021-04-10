@@ -22,7 +22,7 @@ const useStyles = theme => ({
         transform: "translate(-50%, -50%)",
     },
     paperStyle: {
-        margin: "4vh",
+        marginBottom: "10%",
         padding: "1vh",
         fontSize: "2vh",
         width: "fit-content",
@@ -52,8 +52,7 @@ render() {
             <form className={classes.fieldStyle} autoComplete="on">
                 <Paper elevation={3} className={classes.paperStyle}>
                 <InputBase placeholder="Search for products…" 
-                    className ={classes.searchBar}
-                    inputProps={{ 'aria-label': 'search' }}
+                    inputProps={{ 'aria-label': 'search'}}
                     onKeyPress={(ev) => {
                         if (ev.key === 'Enter') {
                         this.Searched(ev.target.value);
@@ -73,7 +72,7 @@ render() {
     );
   }
   async populateEvents(productName) {
-    const response = await fetch(`api/Products/${productName}`);
+    const response = await fetch(`api/Vendors/${productName}/${productName.eventId}`);
       const data = await response.json();
       console.log(data)
     this.setState({ products: data, loading: false });
