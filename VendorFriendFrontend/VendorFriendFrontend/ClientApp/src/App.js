@@ -12,6 +12,7 @@ import Vendor from './components/Vendor';
 import VendorRequest from './components/VendorRequest';
 import EventRequest from './components/EventRequest';
 import VendorRequestForm from './components/VendorRequestForm';
+import BrowseEvent from './components/BrowseEvent';
 
 import './custom.css'
 
@@ -40,6 +41,7 @@ export default class App extends Component {
         <Route path='/register_event' component={EventRequest} />
         <Route path='/vendor/request/:eventName' component={VendorRequestForm} />
         <Route path='/vendor/:vendorName' component={Vendor} />
+        <Route path='/browse' component={BrowseEvent} />
         </Layout>
       </MuiThemeProvider>
     );

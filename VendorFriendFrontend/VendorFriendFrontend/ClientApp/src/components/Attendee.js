@@ -33,8 +33,8 @@ render() {
             <Button variant="contained" color="primary" component={Link} to="/products" className={classes.buttonStyle}>
             Search Products
             </Button>
-            <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle}>
-            Search Vendors
+            <Button variant="contained" color="primary" component={Link} to="/browse" className={classes.buttonStyle}>
+            Browse Vendors
             </Button>
             <Button variant="contained" color="primary" component={Link} to="/" className={classes.backButtonStyle}>
             Back
