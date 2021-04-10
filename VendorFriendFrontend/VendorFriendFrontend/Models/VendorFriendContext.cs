@@ -102,6 +102,10 @@ namespace VendorFriendFrontend.Models
                     .HasMaxLength(255)
                     .HasColumnName("product_description");
 
+                entity.Property(e => e.ProductName)
+                    .HasMaxLength(255)
+                    .HasColumnName("product_name");
+
                 entity.Property(e => e.ProductQuantity).HasColumnName("product_quantity");
 
                 entity.Property(e => e.VendorId).HasColumnName("vendor_id");
