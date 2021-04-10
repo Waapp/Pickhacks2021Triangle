@@ -45,7 +45,9 @@ class VendorRequest extends Component {
         return (
             <div className={classes.divStyle}>
                 <Paper elevation={3} className={classes.paperStyle}>What event would you like to request to be a vendor at?
-                <InputBase placeholder="Search…" className ={classes.searchBar}inputProps={{ 'aria-label': 'search' }}
+                <InputBase placeholder="Search…" 
+                    className ={classes.searchBar}
+                    inputProps={{ 'aria-label': 'search' }}
                     onKeyPress={(ev) => {
                         if (ev.key === 'Enter') {
                         this.Searched(ev.target.value);
