@@ -22,6 +22,9 @@ const useStyles = theme => ({
         position: "absolute",
         bottom: "5%",
         left: "5%"
+    },
+    unstyledButton: {
+        border: "0"
     }
 });
 
@@ -50,8 +53,11 @@ class Vendor extends Component {
             <Button variant="contained" color="primary" component={Link} to="/" className={classes.backButtonStyle}>
             Back
             </Button>
-            {this.state.products.map((product) => (
-                <Card variant="outlined" className={classes.cardStyle}>{product.productName}</Card>
+            {
+                this.state.products.map((product) => (
+                <Button component={Link} to ="/vendor" className={classes.unstyledButton}>
+                    <Card variant="outlined" className={classes.cardStyle}>{product.productName}</Card>
+                </Button>
             ))
             }
       </div>
