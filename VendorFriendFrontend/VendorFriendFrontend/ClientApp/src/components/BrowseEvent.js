@@ -34,7 +34,7 @@ class BrowseEvent extends Component {
         this.state = { vendors: [], loading: true, eventName: '' };
       }
     async Searched(eventName) {
-        this.getEvent(this.state.eventName, productName);
+        this.getEvent(eventName);
         
     }
 
@@ -54,7 +54,7 @@ render() {
                     }}/>
                 </Paper>
                 {this.state.loading ? 
-                <p><em>Loading...</em></p>:
+                <p><em>Try searching an event!</em></p>:
                 
                 this.state.vendors.map((vendor) => (
                     <Card variant="outlined" className={classes.cardStyle}>{vendor.vendorName}</Card>
@@ -73,7 +73,7 @@ render() {
       console.log(data)
     this.setState({ vendors: data, loading: false });
   }
-  async getEvent(eventName, productName) {
+  async getEvent(eventName) {
     const requestOptions = {
         method: 'Get',
         headers: { 'Content-Type': 'application/json' },
@@ -81,7 +81,7 @@ render() {
     const response = await fetch(`api/Events/${eventName}`, requestOptions);
     const data = await response.json();
     console.log(data[0].eventId)
-    this.populateProducts(productName, data[0].eventId);
+    this.populateProducts(data[0].eventId);
   }
 }
 
