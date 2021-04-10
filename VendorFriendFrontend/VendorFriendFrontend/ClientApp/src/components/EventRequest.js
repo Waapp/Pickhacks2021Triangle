@@ -19,7 +19,7 @@ const useStyles = theme => ({
       marginTop: "20%",
       fontSize: "3",
       Wrap: "True"
-  },
+    },
     paperStyle: {
         margin: "4vh",
         padding: "1vh",
@@ -27,6 +27,11 @@ const useStyles = theme => ({
         width: "fit-content",
         display: "flex",
         flexDirection: "column",
+    },
+    backButtonStyle: {
+      position: "absolute",
+      bottom: "5%",
+      left: "5%"
     }
 });
 
@@ -97,6 +102,9 @@ class EventRequest extends Component {
                 </Paper>
                 <Button variant="contained" color="primary" onClick={this.handleSubmit}>
                 Submit Event
+                </Button>
+                <Button variant="contained" color="primary" component={Link} to="/" className={classes.backButtonStyle}>
+                Back
                 </Button>
             </div>
         );
