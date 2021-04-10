@@ -57,7 +57,7 @@ class VendorRequest extends Component {
                 <p><em>Loading...</em></p>:
                 
                 this.state.events.map((event) => (
-                    <Card variant="outlined" className={classes.cardStyle}>{event.eventName}</Card>
+                    <Card variant="outlined" className={classes.cardStyle} component={Link} to={`/vendor/request/${event.eventName}`}>{event.eventName}</Card>
                 ))
                 }
             </div>

@@ -10,6 +10,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Vendor from './components/Vendor';
 import VendorRequest from './components/VendorRequest';
 import EventRequest from './components/EventRequest';
+import VendorRequestForm from './components/VendorRequestForm';
 
 import './custom.css'
 
@@ -33,8 +34,9 @@ export default class App extends Component {
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
         <Route exact path='/vendor' component={Vendor} />
-        <Route path='/vendor/request' component={VendorRequest} />
+        <Route exact path='/vendor/request' component={VendorRequest} />
         <Route path='/register_event' component={EventRequest} />
+        <Route path='/vendor/request/:eventName' component={VendorRequestForm} />
         </Layout>
       </MuiThemeProvider>
     );
