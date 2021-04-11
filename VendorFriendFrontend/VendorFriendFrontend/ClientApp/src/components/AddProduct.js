@@ -12,9 +12,10 @@ const useStyles = theme => ({
         flexDirection: "column",
     },
     buttonStyle: {
+		
       margin: "4vh",
       height: "10vh",
-      marginTop: "20%",
+      marginTop: "10%",
       fontSize: "3",
       Wrap: "True"
     },
@@ -28,9 +29,14 @@ const useStyles = theme => ({
     },
     backButtonStyle: {
       position: "absolute",
-      bottom: "5%",
-      left: "5%"
-    }
+      top: "0%",
+      left: "0%",
+	  transform: "translate(50%, 50%)"
+    },
+	textFieldStyle: {
+		margin: "4px",
+		padding: "2px"
+	}
 });
 
 class AddProduct extends Component {
@@ -94,7 +100,7 @@ class AddProduct extends Component {
                 <Button variant="contained" color="primary" onClick={() =>this.handleSubmit()}>
                 Add product
                 </Button>
-                <Button variant="contained" color="primary" component={Link} to="/" className={classes.backButtonStyle}>
+                <Button variant="contained" color="tertiary" component={Link} to="/" className={classes.backButtonStyle}>
                 Back
                 </Button>
             </div>

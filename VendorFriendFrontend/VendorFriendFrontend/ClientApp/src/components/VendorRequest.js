@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
-import PropTypes from 'prop-types';
 import { makeStyles, withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -13,19 +12,27 @@ const useStyles = theme => ({
         flexDirection: "column",
     },
     buttonStyle: {
+		background: "linear-gradient(10deg, purple 20%, blue 100%)",
         margin: "4vh",
         height: "10vh",
-        marginBottom: "20%",
+        marginBottom: "10%",
         fontSize: "3",
         Wrap: "True"
     },
     paperStyle: {
+		background: "lightgrey",
         margin: "4vh",
         padding: "1vh",
         fontSize: "2vh",
         width: "fit-content",
         display: "flex",
         flexDirection: "column",
+    },
+	backButtonStyle: {
+        position: "absolute",
+        top: "0%",
+        left: "0%",
+		transform: "translate(50%, 50%)"
     }
 });
 
@@ -56,13 +63,14 @@ class VendorRequest extends Component {
                         }
                     }}/>
                 </Paper>
-                {this.state.loading ? 
-                <p><em>Loading...</em></p>:
-                
+                {
                 this.state.events.map((event) => (
                     <Card variant="outlined" className={classes.cardStyle} component={Link} to={`/register_for_event/${event.eventName}`}>{event.eventName}</Card>
                 ))
                 }
+				<Button variant="contained" color="tertiary" component={Link} to="/vendor" className={classes.backButtonStyle}>
+           		Back
+            	</Button>
             </div>
         );
     }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
-import PropTypes from 'prop-types';
 import { makeStyles, withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import './Home.css';
@@ -12,13 +11,21 @@ const useStyles = theme => ({
     },
     
     buttonStyle: {
+		background: "linear-gradient(10deg, purple 20%, blue 100%)",
         margin: "4vh",
         height: "10vh",
-        marginBottom: "20%",
+        marginBottom: "10%",
         fontSize: "3",
         Wrap: "True"
     },
-    
+    buttonStyle2: {
+		background: "linear-gradient(10deg, blue 20%, purple 100%)",
+        margin: "4vh",
+        height: "10vh",
+        marginBottom: "10%",
+        fontSize: "3",
+        Wrap: "True"
+	}
 });
 
 class Home extends Component {
@@ -31,7 +38,7 @@ render() {
             <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.buttonStyle}>
                 I am an attendee
           </Button>
-            <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle}>
+            <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle2}>
                 I am a vendor
             </Button>
             <Button variant="contained" color="primary" component={Link} to="/register_event" className={classes.buttonStyle}>
