@@ -68,9 +68,10 @@ class AddProduct extends Component {
       handleSubmit = (product) => {
         let productObject = {
             "ProductName": this.state.productName,
+            "ProductCost": this.state.productPrice,
             "ProductDescription": this.state.productDescription,
-            "ProductActive": true,
-            "OwnerId": 1,
+            "ProductAvailableOnline": true,
+            "VenderId": 1,
         };
         console.log(productObject)
         this.submitproduct(productObject);
