@@ -15,11 +15,17 @@ const useStyles = theme => ({
         flexDirection: "column",
         height: "80vh",
     },
-    paperStyle: {
-		background: "lightgrey",
+	fieldStyle: {
+        height: "10vh",
+        variant: "outlined",
+    },
+	paperStyle: {
+		background: "lightgray",
+        margin: "4vh",
+        padding: "1vh",
+        fontSize: "2vh",
         display: "flex",
         flexDirection: "column",
-        marginTop:"2vh",
     },
     backButtonStyle: {
         position: "absolute",
@@ -87,8 +93,6 @@ render() {
                 </Paper>
                 <Paper className={classes.outputFormatting}>
                 {
-                this.state.loading ? 
-                <p className = {classes.trySearch}>Try searching for an event!</p>:
                 this.state.vendors.map((vendor) => (
                     <Card variant="outlined" className={classes.cardStyle} component={Link} to={`/vendorPage/${vendor.vendorName}`}>{`${vendor.vendorName}`}</Card>
                 ))

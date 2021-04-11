@@ -12,16 +12,12 @@ const useStyles = theme => ({
         flexDirection: "column",
     },
     fieldStyle: {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
         height: "10vh",
         variant: "outlined",
-        transform: "translate(-50%, -50%)",
     },
     paperStyle: {
 		background: "lightgray",
-        marginBottom: "10%",
+        margin: "4vh",
         padding: "1vh",
         fontSize: "2vh",
         display: "flex",
