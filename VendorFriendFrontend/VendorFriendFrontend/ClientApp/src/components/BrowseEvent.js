@@ -13,6 +13,11 @@ const useStyles = theme => ({
         display: "flex",
         flexDirection: "column",
     },
+    paperStyle: {
+        display: "flex",
+        flexDirection: "column",
+        marginTop:"2vh",
+    },
     buttonStyle: {
         margin: "4vh",
         height: "10vh",
@@ -24,6 +29,11 @@ const useStyles = theme => ({
         position: "absolute",
         bottom: "5%",
         left: "5%"
+    },
+    cardStyle: {
+        margin: "5%",
+        fontSize: "4vh",
+        padding: "1vh",
     }
 });
 
@@ -53,13 +63,14 @@ render() {
                         }
                     }}/>
                 </Paper>
+                <Paper elevation={3} className={classes.paperStyle}>
                 {this.state.loading ? 
                 <p><em>Try searching an event!</em></p>:
-                
                 this.state.vendors.map((vendor) => (
-                    <Card variant="outlined" className={classes.cardStyle}>{vendor.vendorName}</Card>
+                    <Card variant="outlined" className={classes.cardStyle} component={Link} to={`/vendor/${vendor.vendorName}`}>{`${vendor.vendorName}: ${vendor.vendorDescription}`}</Card>
                 ))
                 }
+                </Paper>
             </form>
             <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.backButtonStyle}>
             Back
