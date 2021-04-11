@@ -31,10 +31,11 @@ const useStyles = (theme) =>({
     }
 });
 
-function VendorSignup(vendorPage)
+function VendorSignup(vendorPage, vendorName)
 {
     const classes = useStyles();
-    console.log(classes)
+    console.log(vendorName)
+    console.log(vendorPage)
     if(vendorPage.vendorPage == false)
     {
     return(
@@ -45,16 +46,17 @@ function VendorSignup(vendorPage)
         <Button variant="contained" color="primary" component={Link} to="/vendor" style={classes.buttonStyle}>
         I already have a vendor account
         </Button>
-        <Button variant="contained" color="primary" component={Link} to="/addproduct" style={classes.buttonStyle}>
-        Add a product
-        </Button>
         <Button variant="contained" color="primary" component={Link} to="/" style={classes.backButtonStyle}>
         Back
         </Button>
     </div>
     )
     }else{
-        return(<div></div>)
+        return(<div>
+            <Button variant="contained" color="primary" component={Link} to={`/addproduct/${vendorPage.vendorName}`} style={classes.buttonStyle}>
+                Add a product!
+            </Button>
+        </div>)
     }
 }
 class Vendor extends Component {
@@ -77,7 +79,7 @@ class Vendor extends Component {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
-            <VendorSignup vendorPage={this.state.vendorPage} />
+            <VendorSignup vendorPage={this.state.vendorPage} vendorName={this.state.vendorName} />
             {
                 this.state.products.map((product) => (
                 <Button component={Link} to ="/vendor" className={classes.unstyledButton}>

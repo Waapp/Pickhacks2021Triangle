@@ -36,6 +36,11 @@ namespace VendorFriendFrontend.Controllers
         {
             return await _context.Vendors.Where(x => x.EventId == eventId).ToListAsync();
         }
+        [Route("ByVendorName/{vendorName}")]
+        public Vendor GetVendorByVendorName(string vendorName)
+        {
+            return  _context.Vendors.Where(x => x.VendorName == vendorName).FirstOrDefault();
+        }
 
         [Route("Search/{productName}/{eventId}")]
         public IEnumerable<Vendor> GetProductsByEventAndName(string productName, int eventId)

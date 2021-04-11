@@ -4,6 +4,7 @@ import { makeStyles, withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import { createNoSubstitutionTemplateLiteral } from 'typescript';
 
 const useStyles = theme => ({
     divStyle: {
@@ -38,43 +39,43 @@ class AddProduct extends Component {
         super(props);
         this.state = { products: [], loading: true, 
             productName: 'Product Name',
-            productPrice: 'Price',
+            productPrice: '$',
             productDescription: 'Description',
             ownerName: 'Owner ID',
+            vendorName: this.props.match.params.vendorName,
+            failed: false
         };
       }
     
       handleproductName = (product) => {
-        this.setState({
-          productName: product.target.value,
-        });
+        this.state.productName = product.target.value;
       };
       handlePrice = (product) => {
-        this.setState({
-          productPrice: product.target.value,
-        });
+        this.state.productPrice = product.target.value;
       };
       handleDescription = (product) => {
-        this.setState({
-          productDescription: product.target.value,
-        });
+        this.state.productDescription = product.target.value;
+
       };
       handleOwner = (product) => {
-        this.setState({
-          ownerName: product.target.value,
-        });
+        this.state.ownerName = product.target.value;
+
       };
 
-      handleSubmit = (product) => {
-        let productObject = {
-            "ProductName": this.state.productName,
-            "ProductCost": this.state.productPrice,
-            "ProductDescription": this.state.productDescription,
-            "ProductAvailableOnline": true,
-            "VenderId": 1,
-        };
-        console.log(productObject)
-        this.submitproduct(productObject);
+      handleSubmit = (vendorName) => {
+        console.log("test")
+        const re = /^\$?[0-9]+(\.[0-9][0-9])?$/;
+
+        // if value is not blank, then test the regex
+    
+        if (re.test(this.state.productPrice)) {
+          this.submitproduct(this.state.vendorName);
+        }
+        else
+        {
+          this.setState({failed: true});
+        }
+        
       };
 
     render() {
@@ -82,12 +83,15 @@ class AddProduct extends Component {
         return (
             <div className={classes.divStyle}>
                 <Paper elevation={3} className={classes.paperStyle}>Enter your product information here:
-                <TextField placeholder={this.state.productName} onChange={this.handleproductName} />
-                <TextField placeholder={this.state.productPrice} onChange={this.handlePrice} />
-                <TextField placeholder={this.state.productDescription} onChange={this.handleDescription} />
-                <TextField placeholder={this.state.ownerName} onChange={this.handleOwner} />
+                  <TextField placeholder={this.state.productName} onChange={this.handleproductName} />
+                  <TextField placeholder={this.state.productPrice} onChange={this.handlePrice}/>
+                  <TextField placeholder={this.state.productDescription} onChange={this.handleDescription} />
+                  <TextField placeholder={this.state.ownerName} onChange={this.handleOwner} />
+                  <div>
+                    {this.state.failed ? <h1>enter a valid price for your product</h1> : <h1></h1>}
+                  </div>
                 </Paper>
-                <Button variant="contained" color="primary" onClick={this.handleSubmit}>
+                <Button variant="contained" color="primary" onClick={() =>this.handleSubmit()}>
                 Add product
                 </Button>
                 <Button variant="contained" color="primary" component={Link} to="/" className={classes.backButtonStyle}>
@@ -96,17 +100,27 @@ class AddProduct extends Component {
             </div>
         );
     }
-  async submitproduct(productObject) {
+  async submitproduct(vendorName) {
+      const response = await fetch(`api/Vendors/ByVendorName/${vendorName}`)
+      let vendor = await response.json()
+      console.log(vendor.vendorName)
+      let productObject = {
+        "ProductName": this.state.productName,
+        "ProductCost": this.state.productPrice,
+        "ProductDescription": this.state.productDescription,
+        "ProductAvailableOnline": true,
+        "VendorId": vendor.vendorId,
+      };
       const requestOptions = {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(productObject)
       }
       console.log(requestOptions.body)
-    const response = await fetch(`api/products`, requestOptions);
-      const data = await response.json();
+      const responseTwo = await fetch(`api/Products`, requestOptions);
+      const data = await responseTwo.json();
       console.log(data)
-    this.setState({ products: data, loading: false });
+      this.setState({ products: data, loading: false });
   }
 }
 

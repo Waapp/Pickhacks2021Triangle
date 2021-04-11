@@ -35,7 +35,7 @@ export default class App extends Component {
         <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/products' component={Products} />
-		<Route path='/addproduct/:vendorName' component={AddProduct} />
+		    <Route path='/addproduct/:vendorName' component={AddProduct} />
         <Route path='/attendee' component={Attendee} />
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
