@@ -3,7 +3,6 @@ import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
 import { makeStyles, withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
 import TextField from '@material-ui/core/TextField';
 
 const useStyles = theme => ({
@@ -33,12 +32,12 @@ const useStyles = theme => ({
     }
 });
 
-class ProductRequest extends Component {
-    static displayName = ProductRequest.name;
+class AddProduct extends Component {
+    static displayName = AddProduct.name;
     constructor(props) {
         super(props);
         this.state = { products: [], loading: true, 
-            productName: 'product Name',
+            productName: 'Product Name',
             productPrice: 'Price',
             productDescription: 'Description',
             ownerName: 'Owner ID',
@@ -50,9 +49,9 @@ class ProductRequest extends Component {
           productName: product.target.value,
         });
       };
-      handleLocation = (product) => {
+      handlePrice = (product) => {
         this.setState({
-          productLocation: product.target.value,
+          productPrice: product.target.value,
         });
       };
       handleDescription = (product) => {
@@ -111,4 +110,4 @@ class ProductRequest extends Component {
   }
 }
 
-export default withStyles(useStyles)(productRequest);
+export default withStyles(useStyles)(AddProduct);

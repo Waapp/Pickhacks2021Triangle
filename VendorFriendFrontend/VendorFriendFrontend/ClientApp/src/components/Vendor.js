@@ -14,7 +14,7 @@ const useStyles = (theme) =>({
     buttonStyle: {
         margin: "4vh",
         height: "10vh",
-        marginBottom: "20%",
+        marginBottom: "15%",
         fontSize: "3",
         Wrap: "True"
     },
@@ -45,7 +45,10 @@ function VendorSignup(vendorPage)
         <Button variant="contained" color="primary" component={Link} to="/vendor" style={classes.buttonStyle}>
         I already have a vendor account
         </Button>
-        <Button variant="contained" color="primary" component={Link} to="/" style={classes.buttonStyle}>
+        <Button variant="contained" color="primary" component={Link} to="/addproduct" style={classes.buttonStyle}>
+        Add a product
+        </Button>
+        <Button variant="contained" color="primary" component={Link} to="/" style={classes.backButtonStyle}>
         Back
         </Button>
     </div>
