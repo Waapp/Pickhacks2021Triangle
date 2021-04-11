@@ -10,14 +10,15 @@ const useStyles = theme => ({
     divStyle: {
         display: "flex",
         flexDirection: "column",
+		alignItems: "center",
+		justify: "center"
     },
     buttonStyle: {
 		background: "linear-gradient(10deg, purple 20%, blue 100%)",
         margin: "4vh",
         height: "10vh",
         marginBottom: "10%",
-        fontSize: "3",
-        Wrap: "True"
+		textAlign: "center"
     },
     paperStyle: {
 		background: "lightgrey",

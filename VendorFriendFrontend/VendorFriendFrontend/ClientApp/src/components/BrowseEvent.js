@@ -18,13 +18,6 @@ const useStyles = theme => ({
         flexDirection: "column",
         marginTop:"2vh",
     },
-    buttonStyle: {
-        margin: "4vh",
-        height: "10vh",
-        marginBottom: "20%",
-        fontSize: "3",
-        Wrap: "True"
-    },
     backButtonStyle: {
         position: "absolute",
         top: "0%",
