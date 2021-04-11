@@ -47,6 +47,9 @@ class Vendor extends Component {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
+            <Button variant="contained" color="primary" component={Link} to="/register_vendor" className={classes.buttonStyle}>
+            Signup for a vendor account
+            </Button>
             <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle}>
             I already have a vendor account
             </Button>

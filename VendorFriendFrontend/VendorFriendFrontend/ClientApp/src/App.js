@@ -37,9 +37,9 @@ export default class App extends Component {
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
         <Route exact path='/vendor' component={Vendor} />
-        <Route exact path='/vendor/request' component={VendorRequest} />
+        <Route exact path='/register_vendor' component={VendorRequest} />
         <Route path='/register_event' component={EventRequest} />
-        <Route path='/vendor/request/:eventName' component={VendorRequestForm} />
+        <Route path='/register_for_event/:eventName' component={VendorRequestForm} />
         <Route path='/vendor/:vendorName' component={Vendor} />
         <Route path='/browse' component={BrowseEvent} />
         </Layout>

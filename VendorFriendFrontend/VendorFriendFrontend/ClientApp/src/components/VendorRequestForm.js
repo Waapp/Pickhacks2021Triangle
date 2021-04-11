@@ -69,17 +69,7 @@ class VendorRequestForm extends Component {
       };
 
       handleSubmit = (event) => {
-        let eventObject = {
-            "VendorName": this.state.vendorName,
-            "VendorLocation": this.state.vendorLocation,
-            "VendorDescription": this.state.vendorDescription,
-            "VendorHours": this.state.vendorHours,
-            "ApprovedVendor": true,
-            "EventId": 1,
-            "OwnerId": 1,
-        };
-        console.log(eventObject)
-        this.submitVendor(eventObject);
+        this.getEvent(this.state.eventName);
       };
 
       
@@ -100,6 +90,27 @@ class VendorRequestForm extends Component {
                 </Button>
             </div>
         );
+    }
+    async getEvent(eventName) {
+        const requestOptions = {
+            method: 'Get',
+            headers: { 'Content-Type': 'application/json' },
+        }
+        const response = await fetch(`api/Events/${eventName}`, requestOptions);
+        const data = await response.json();
+        if(data[0] != undefined) {
+            console.log(data[0].eventId)
+            let vendorObject = {
+                "VendorName": this.state.vendorName,
+                "VendorLocation": this.state.vendorLocation,
+                "VendorDescription": this.state.vendorDescription,
+                "VendorHours": this.state.vendorHours,
+                "ApprovedVendor": true,
+                "EventId": data[0].eventId,
+                "OwnerId": 1,
+            };
+            this.submitVendor(vendorObject);
+        }
     }
     async submitVendor(vendorObject) {
         const requestOptions = {

@@ -39,8 +39,15 @@ namespace VendorFriendFrontend.Controllers
             }
             catch
             {
-                int vendorId = _context.Vendors.Where(x => x.VendorName == id).First().VendorId;
-                products = _context.Products.Where(x => x.VendorId == vendorId).ToList();
+                try
+                {
+                    int vendorId = _context.Vendors.Where(x => x.VendorName == id).First().VendorId;
+                    products = _context.Products.Where(x => x.VendorId == vendorId).ToList();
+                }
+                catch
+                {
+
+                }
             }
 
             return products.AsEnumerable<Product>();

@@ -40,15 +40,18 @@ namespace VendorFriendFrontend.Controllers
         [Route("Search/{productName}/{eventId}")]
         public IEnumerable<Vendor> GetProductsByEventAndName(string productName, int eventId)
         {
-            var vendors = _context.Vendors.Where(x => x.EventId == eventId).ToList();
-            foreach(var vendor in vendors)
+            var vendors = _context.Vendors.Where(x => x.EventId == eventId).Include(x => x.Products);
+            var product = _context.Products.Where(x => x.ProductName == productName).Include(x => x.Vendor);
+            var tempList = new List<Vendor>();
+            foreach(var vendor in product)
             {
-                if(vendor.Products.Where(x => x.ProductName == productName) == null)
+                if(vendor.Vendor.EventId == eventId)
                 {
-                    vendors.Remove(vendor);
+                    tempList.Add(vendor.Vendor);
                 }
             }
-            return vendors.AsEnumerable<Vendor>();
+
+            return tempList;
         }
 
         // GET: api/Vendors/5

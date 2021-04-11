@@ -44,8 +44,7 @@ class BrowseEvent extends Component {
         this.state = { vendors: [], loading: true, eventName: '' };
       }
     async Searched(eventName) {
-        this.getEvent(eventName);
-        
+        let error = this.getEvent(eventName);
     }
 
 render() {
@@ -91,8 +90,16 @@ render() {
     }
     const response = await fetch(`api/Events/${eventName}`, requestOptions);
     const data = await response.json();
-    console.log(data[0].eventId)
-    this.populateProducts(data[0].eventId);
+    if(data[0] != undefined)
+    {
+        
+        console.log(data[0].eventId)
+        this.populateProducts(data[0].eventId);
+    }
+    else
+    {
+        return true
+    }
   }
 }
 
