@@ -31,11 +31,16 @@ namespace VendorFriendFrontend.Controllers
         {
             return await _context.Vendors.Where(x => x.EventId == eventId && x.VendorName == vendorName).ToListAsync();
         }
+        [Route("ByEventId/{eventId}")]
+        public async Task<ActionResult<IEnumerable<Vendor>>> GetVendorsByEventId(int eventId)
+        {
+            return await _context.Vendors.Where(x => x.EventId == eventId).ToListAsync();
+        }
 
-        [HttpGet("{productName}/{eventId}")]
+        [Route("Search/{productName}/{eventId}")]
         public IEnumerable<Vendor> GetProductsByEventAndName(string productName, int eventId)
         {
-            var vendors = _context.Events.Find(eventId).Vendors;
+            var vendors = _context.Vendors.Where(x => x.EventId == eventId).ToList();
             foreach(var vendor in vendors)
             {
                 if(vendor.Products.Where(x => x.ProductName == productName) == null)

@@ -24,6 +24,7 @@ namespace VendorFriendFrontend
         {
 
             services.AddControllersWithViews();
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddDbContext<VendorFriendContext>(options => options.UseMySQL("server=pickhacks2021.cpyouxawgxzw.us-east-2.rds.amazonaws.com; database=VendorFriend; uid=Triangle; pwd=weMakeCode;"));
 
 

@@ -39,6 +39,7 @@ class VendorRequestForm extends Component {
             vendorDescription: 'Description',
             vendorHours: 'Vendor Hours',
             ownerName: 'Owner ID',
+            eventName: this.props.match.params.eventName,
         };
       }
       handleEventName = (event) => {
@@ -78,7 +79,6 @@ class VendorRequestForm extends Component {
             "OwnerId": 1,
         };
         console.log(eventObject)
-        console.log(this.props.match.params.eventName)
         this.submitVendor(eventObject);
       };
 

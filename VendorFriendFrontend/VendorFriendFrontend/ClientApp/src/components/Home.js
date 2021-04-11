@@ -14,7 +14,7 @@ const useStyles = theme => ({
     buttonStyle: {
         margin: "4vh",
         height: "10vh",
-        marginTop: "20%",
+        marginBottom: "20%",
         fontSize: "3",
         Wrap: "True"
     },
@@ -28,7 +28,7 @@ render() {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
-            <Button variant="contained" color="primary" component={Link} to="/products" className={classes.buttonStyle}>
+          <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.buttonStyle}>
                 I am an attendee
           </Button>
             <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle}>
