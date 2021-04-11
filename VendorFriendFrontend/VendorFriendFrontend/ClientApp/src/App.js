@@ -9,6 +9,7 @@ import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Vendor from './components/Vendor';
+import VendorLogin from './components/VendorLogin';
 import VendorRequest from './components/VendorRequest';
 import EventRequest from './components/EventRequest';
 import VendorRequestForm from './components/VendorRequestForm';
@@ -37,6 +38,7 @@ export default class App extends Component {
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
         <Route exact path='/vendor' component={Vendor} />
+        <Route exact path='/vendorlogin' component={VendorLogin} />
         <Route exact path='/register_vendor' component={VendorRequest} />
         <Route path='/register_event' component={EventRequest} />
         <Route path='/register_for_event/:eventName' component={VendorRequestForm} />
