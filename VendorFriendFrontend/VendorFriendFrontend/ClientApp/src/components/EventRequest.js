@@ -21,10 +21,10 @@ const useStyles = theme => ({
       Wrap: "True"
     },
     paperStyle: {
+        background: "skyblue",
         margin: "4vh",
         padding: "1vh",
         fontSize: "2vh",
-        width: "fit-content",
         display: "flex",
         flexDirection: "column",
     },

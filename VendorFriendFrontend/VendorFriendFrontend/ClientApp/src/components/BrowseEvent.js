@@ -21,7 +21,7 @@ const useStyles = theme => ({
     buttonStyle: {
         margin: "4vh",
         height: "10vh",
-        marginTop: "20%",
+        marginBottom: "20%",
         fontSize: "3",
         Wrap: "True"
     },
