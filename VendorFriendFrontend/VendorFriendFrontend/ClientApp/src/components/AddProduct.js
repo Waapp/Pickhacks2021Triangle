@@ -19,10 +19,10 @@ const useStyles = theme => ({
       Wrap: "True"
     },
     paperStyle: {
+        background: "skyblue",
         margin: "4vh",
         padding: "1vh",
         fontSize: "2vh",
-        width: "fit-content",
         display: "flex",
         flexDirection: "column",
     },
@@ -83,10 +83,10 @@ class ProductRequest extends Component {
         return (
             <div className={classes.divStyle}>
                 <Paper elevation={3} className={classes.paperStyle}>Enter your product information here:
-                <TextField value={this.state.productName} onChange={this.handleproductName} />
-                <TextField value={this.state.productPrice} onChange={this.handlePrice} />
-                <TextField value={this.state.productDescription} onChange={this.handleDescription} />
-                <TextField value={this.state.ownerName} onChange={this.handleOwner} />
+                <TextField placeholder={this.state.productName} onChange={this.handleproductName} />
+                <TextField placeholder={this.state.productPrice} onChange={this.handlePrice} />
+                <TextField placeholder={this.state.productDescription} onChange={this.handleDescription} />
+                <TextField placeholder={this.state.ownerName} onChange={this.handleOwner} />
                 </Paper>
                 <Button variant="contained" color="primary" onClick={this.handleSubmit}>
                 Add product

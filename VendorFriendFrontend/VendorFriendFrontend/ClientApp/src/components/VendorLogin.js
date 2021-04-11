@@ -59,6 +59,7 @@ class Login extends Component {
                 fullWidth
                 id="email"
                 label="Username"
+                type="text"
                 name="user"
                 autoFocus
             />

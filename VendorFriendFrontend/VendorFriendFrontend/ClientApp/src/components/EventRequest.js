@@ -94,11 +94,11 @@ class EventRequest extends Component {
         return (
             <div className={classes.divStyle}>
                 <Paper elevation={3} className={classes.paperStyle}>Enter your event information here:
-                <TextField value={this.state.eventName} onChange={this.handleEventName} />
-                <TextField value={this.state.eventLocation} onChange={this.handleLocation} />
-                <TextField value={this.state.eventDescription} onChange={this.handleDescription} />
-                <TextField value={this.state.eventHours} onChange={this.handleHours} />
-                <TextField value={this.state.ownerName} onChange={this.handleOwner} />
+                <TextField placeholder={this.state.eventName} onChange={this.handleEventName} />
+                <TextField placeholder={this.state.eventLocation} onChange={this.handleLocation} />
+                <TextField placeholder={this.state.eventDescription} onChange={this.handleDescription} />
+                <TextField placeholder={this.state.eventHours} onChange={this.handleHours} />
+                <TextField placeholder={this.state.ownerName} onChange={this.handleOwner} />
                 </Paper>
                 <Button variant="contained" color="primary" onClick={this.handleSubmit}>
                 Submit Event
