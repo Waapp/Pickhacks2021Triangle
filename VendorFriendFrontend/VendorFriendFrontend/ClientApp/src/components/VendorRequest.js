@@ -4,6 +4,7 @@ import { makeStyles, withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase'
+import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card'
 
 const useStyles = theme => ({
@@ -33,7 +34,18 @@ const useStyles = theme => ({
         top: "0%",
         left: "0%",
 		transform: "translate(50%, 50%)"
-    }
+    },
+    cardStyle: {
+        margin: "1vh",
+        height: "7vh",
+        width: "35vh",
+        display: "flex",
+        alignItems: "center",
+        padding: "1vh",
+        fontSize:"1.8vh",
+        textTransform: "capitalize",
+        justifyContent: "space-between",
+    },
 });
 
 class VendorRequest extends Component {
@@ -53,9 +65,9 @@ class VendorRequest extends Component {
         return (
             <div className={classes.divStyle}>
                 <Paper elevation={3} className={classes.paperStyle}>What event would you like to request to be a vendor at?
-                <InputBase placeholder="Search…" 
+                <TextField placeholder="Search…" 
                     className ={classes.searchBar}
-                    inputProps={{ 'aria-label': 'search' }}
+                    InputProps={{ style: {fontSize:"2.5vh"}}}
                     onKeyPress={(ev) => {
                         if (ev.key === 'Enter') {
                         this.Searched(ev.target.value);

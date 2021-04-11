@@ -4,6 +4,7 @@ import { makeStyles, withStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card'
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase'
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 
 const useStyles = theme => ({
@@ -28,7 +29,18 @@ const useStyles = theme => ({
         top: "0%",
         left: "0%",
 		transform: "translate(50%, 50%)"
-    }
+    },
+    cardStyle: {
+        margin: "1vh",
+        height: "7vh",
+        width: "35vh",
+        display: "flex",
+        alignItems: "center",
+        padding: "1vh",
+        fontSize:"1.8vh",
+        textTransform: "capitalize",
+        justifyContent: "space-between",
+    },
 });
 
 class search extends Component {
@@ -48,14 +60,14 @@ render() {
         <div className={classes.divStyle}>
             <form className={classes.fieldStyle} autoComplete="on">
                 <Paper elevation={3} className={classes.paperStyle}>
-                <InputBase placeholder="Type name of event"  
-                    inputProps={{ 'aria-label': 'search'}}
+                <TextField placeholder="Type name of event"  
+                    InputProps={{ style: {fontSize:"2.5vh"}}}
                     onChange={(ev)=>{
                         this.state.eventName = ev.target.value}}/>
                 </Paper>
                 <Paper elevation={3} className={classes.paperStyle}>
-                <InputBase placeholder="Type name of product" 
-                    inputProps={{ 'aria-label': 'search'}}
+                <TextField placeholder="Type name of product" 
+                    InputProps={{ style: {fontSize:"2.5vh"}}}
                     onKeyPress={(ev) => {
                         if (ev.key === 'Enter') {
                         this.Searched(ev.target.value);
@@ -66,7 +78,9 @@ render() {
 
                 {
                 this.state.vendors.map((vendor) => (
-                    <Card variant="outlined" className={classes.cardStyle}>{vendor.vendorName}</Card>
+                    <Button component={Link} to={`/vendorPage/${vendor.vendorName}`}>
+                        <Card variant="outlined" className={classes.cardStyle}>{vendor.vendorName}</Card>
+                    </Button>
                 ))
                 }
             </form>

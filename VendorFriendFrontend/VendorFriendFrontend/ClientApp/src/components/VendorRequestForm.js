@@ -79,11 +79,11 @@ class VendorRequestForm extends Component {
         return (
             <div className={classes.divStyle}>
                 <Paper elevation={3} className={classes.paperStyle}>Enter your vendor information here:
-                <TextField value={this.state.vendorName} onChange={this.handleEventName} />
-                <TextField value={this.state.vendorLocation} onChange={this.handleLocation} />
-                <TextField value={this.state.vendorDescription} onChange={this.handleDescription} />
-                <TextField value={this.state.vendorHours} onChange={this.handleHours} />
-                <TextField value={this.state.ownerName} onChange={this.handleOwner} />
+                <TextField placeholder={this.state.vendorName} InputProps={{ style: {fontSize:"2.5vh"}}}onChange={this.handleEventName} />
+                <TextField placeholder={this.state.vendorLocation} InputProps={{ style: {fontSize:"2.5vh"}}}onChange={this.handleLocation} />
+                <TextField placeholder={this.state.vendorDescription} InputProps={{ style: {fontSize:"2.5vh"}}}onChange={this.handleDescription} />
+                <TextField placeholder={this.state.vendorHours} InputProps={{ style: {fontSize:"2.5vh"}}}onChange={this.handleHours} />
+                <TextField placeholder={this.state.ownerName} InputProps={{ style: {fontSize:"2.5vh"}}}onChange={this.handleOwner} />
                 </Paper>
                 <Button variant="contained" color="primary" onClick={this.handleSubmit}>
                 Submit Vendor Application

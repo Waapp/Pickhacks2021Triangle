@@ -92,7 +92,6 @@ class AddProduct extends Component {
                   <TextField placeholder={this.state.productName} onChange={this.handleproductName} />
                   <TextField placeholder={this.state.productPrice} onChange={this.handlePrice}/>
                   <TextField placeholder={this.state.productDescription} onChange={this.handleDescription} />
-                  <TextField placeholder={this.state.ownerName} onChange={this.handleOwner} />
                   <div>
                     {this.state.failed ? <h1>enter a valid price for your product</h1> : <h1></h1>}
                   </div>

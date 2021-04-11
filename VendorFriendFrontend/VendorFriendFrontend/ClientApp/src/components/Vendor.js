@@ -3,6 +3,7 @@ import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import Paper from '@material-ui/core/Paper';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import IconButton from '@material-ui/core/IconButton';
@@ -45,22 +46,29 @@ const useStyles = theme => ({
     cardStyle: {
         margin: "1vh",
         height: "7vh",
-        width: "100%",
+        width: "35vh",
         display: "flex",
         alignItems: "center",
         padding: "1vh",
-        fontSize:"1.5vh",
+        fontSize:"1.8vh",
         textTransform: "capitalize",
+        justifyContent: "space-between",
     },
     moreIcon: {
+    },
+    vendorInformation: {
+        marginTop: "1vh",
+        fontSize: "1.5vh",
+        width: "100%",
+        height:"fit-content",
+        padding: "1vh",
+
     }
 });
 
 function VendorSignup(vendorPage, vendorName)
 {
     const classes = useStyles();
-    console.log(vendorName)
-    console.log(vendorPage)
     if(vendorPage.vendorPage == false)
     {
     return(
@@ -71,9 +79,7 @@ function VendorSignup(vendorPage, vendorName)
         <Button variant="contained" color="primary" component={Link} to="/browse" style={classes.buttonStyle2}>
         I already have a vendor account
         </Button>
-        <Button variant="contained" color="tertiary" component={Link} to="/" style={classes.backButtonStyle}>
-        Back
-        </Button>
+        
     </div>
     )
     }else{
@@ -84,18 +90,27 @@ function VendorSignup(vendorPage, vendorName)
         </div>)
     }
 }
+
+function MoreInfo(vendorDescription)
+{
+    return(
+    <CardContent>
+        {vendorDescription.vendorDescription}
+    </CardContent>)
+}
+
 class Vendor extends Component {
     static displayName = Vendor.name;
     constructor(props) {
         super(props);
-        this.state = {vendorPage: false, products: [], loading: true, vendorName: this.props.match.params.vendorName};
+        this.state = {vendorPage: false, vendorInfo: null, products: [], loading: true, vendorName: this.props.match.params.vendorName, moreInfo: null};
       }
     
     componentDidMount() {
         if (this.state.vendorName != null)
         {
-            console.log(this.state.vendorName)
             this.populateProducts(this.state.vendorName)
+            this.getVendorInfo(this.state.vendorName)
             this.state.vendorPage=true
         }
     }
@@ -104,22 +119,37 @@ class Vendor extends Component {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
-            <Paper></Paper>
+            {this.state.vendorPage == true ?
+            <Paper className={classes.vendorInformation}>
+                {this.state.vendorInfo == null ? "Loading vendor data" : <h2>{this.state.vendorInfo.vendorName}</h2>} 
+                {this.state.vendorInfo == null ? " " : <p>{this.state.vendorInfo.vendorDescription}</p>}
+            </Paper>
+            : " "
+            }
             {
                 this.state.products.map((product) => (
-                <Button component={Link} to ="/vendor" className={classes.unstyledButton}>
                     <Card variant="outlined" className={classes.cardStyle}>
-                        {product.productName}
-                        <IconButton className = {classes.moreIcon}>
-                            <MoreHorizIcon />
+                        {this.state.moreInfo == product.productName ? " " : product.productName}
+                        <IconButton className = {classes.moreIcon} onClick={() => this.setState({moreInfo: product.productName})}>
+                            {this.state.moreInfo == product.productName ? <MoreInfo vendorDescription={product.productDescription}/> : <MoreHorizIcon />}
                         </IconButton>
                     </Card>
-                </Button>
             ))
             }
             <VendorSignup vendorPage={this.state.vendorPage} vendorName={this.state.vendorName} />
+            <Button variant="contained" color="tertiary" component={Link} to="/" className={classes.backButtonStyle}>
+                Back
+            </Button>
       </div>
     );
+  }
+  async getVendorInfo(vendorName) {
+      console.log(vendorName)
+      const response = await fetch(`api/Vendors/ByVendorName/${vendorName}`);
+      console.log(response)
+      const data = await response.json();
+      console.log(data)
+      this.setState({vendorInfo: data})
   }
   async populateProducts(vendorName) {
     const response = await fetch(`api/Products/${vendorName}`);

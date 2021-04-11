@@ -95,11 +95,10 @@ class EventRequest extends Component {
         return (
             <div className={classes.divStyle}>
                 <Paper elevation={3} className={classes.paperStyle}>Enter your event information here:
-                <TextField className={classes.textFieldStyle} placeholder={this.state.eventName} onChange={this.handleEventName} />
-                <TextField className={classes.textFieldStyle} placeholder={this.state.eventLocation} onChange={this.handleLocation} />
-                <TextField className={classes.textFieldStyle} placeholder={this.state.eventDescription} onChange={this.handleDescription} />
-                <TextField className={classes.textFieldStyle} placeholder={this.state.eventHours} onChange={this.handleHours} />
-                <TextField className={classes.textFieldStyle} placeholder={this.state.ownerName} onChange={this.handleOwner} />
+                <TextField className={classes.textFieldStyle} InputProps={{ style: {fontSize:"2.5vh"}}}placeholder={this.state.eventName} onChange={this.handleEventName} />
+                <TextField className={classes.textFieldStyle} InputProps={{ style: {fontSize:"2.5vh"}}}placeholder={this.state.eventLocation} onChange={this.handleLocation} />
+                <TextField className={classes.textFieldStyle} InputProps={{ style: {fontSize:"2.5vh"}}}placeholder={this.state.eventDescription} onChange={this.handleDescription} />
+                <TextField className={classes.textFieldStyle} InputProps={{ style: {fontSize:"2.5vh"}}}placeholder={this.state.eventHours} onChange={this.handleHours} />
                 </Paper>
                 <Button className={classes.buttonStyle} type="submit" variant="contained" color="primary" onClick={this.handleSubmit}>
                 Submit Event
