@@ -26,7 +26,6 @@ const useStyles = theme => ({
         marginBottom: "10%",
         padding: "1vh",
         fontSize: "2vh",
-        width: "fit-content",
         display: "flex",
         flexDirection: "column",
     },
@@ -57,10 +56,12 @@ render() {
         <div className={classes.divStyle}>
             <form className={classes.fieldStyle} autoComplete="on">
                 <Paper elevation={3} className={classes.paperStyle}>
-                <InputBase placeholder="Type name of event" 
+                <InputBase placeholder="Type name of event"  
                     inputProps={{ 'aria-label': 'search'}}
                     onChange={(ev)=>{
                         this.state.eventName = ev.target.value}}/>
+                </Paper>
+                <Paper elevation={3} className={classes.paperStyle}>
                 <InputBase placeholder="Type name of product" 
                     inputProps={{ 'aria-label': 'search'}}
                     onKeyPress={(ev) => {
@@ -70,7 +71,9 @@ render() {
                         }
                     }}/>
                 </Paper>
-                {this.state.loading ? 
+
+                {
+                this.state.loading ? 
                 <p><em>Loading...</em></p>:
                 
                 this.state.vendors.map((vendor) => (

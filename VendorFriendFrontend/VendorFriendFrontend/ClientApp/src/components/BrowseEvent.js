@@ -62,14 +62,15 @@ render() {
                         }
                     }}/>
                 </Paper>
-                <Paper elevation={3} className={classes.paperStyle}>
-                {this.state.loading ? 
-                <p><em>Try searching an event!</em></p>:
+   
+                {
+                this.state.loading ? 
+                <p> <br></br>Try searching for an event!</p>:
                 this.state.vendors.map((vendor) => (
                     <Card variant="outlined" className={classes.cardStyle} component={Link} to={`/vendor/${vendor.vendorName}`}>{`${vendor.vendorName}: ${vendor.vendorDescription}`}</Card>
                 ))
                 }
-                </Paper>
+                
             </form>
             <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.backButtonStyle}>
             Back
