@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import Home from './components/Home';
 import Attendee from './components/Attendee';
 import Products from './components/Products';
+import AddProduct from './components/AddProduct';
 import { createMuiTheme, makeStyles, MuiThemeProvider, withStyles} from '@material-ui/core/styles';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
@@ -34,6 +35,7 @@ export default class App extends Component {
         <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/products' component={Products} />
+		<Route path='/addproduct/:vendorName' component={AddProduct} />
         <Route path='/attendee' component={Attendee} />
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
