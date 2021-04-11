@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
 import { makeStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card'
+import Card from '@material-ui/core/Card';
+import Paper from '@material-ui/core/Paper';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import IconButton from '@material-ui/core/IconButton';
 import './Home.css';
 
 const useStyles = (theme) =>({
@@ -36,7 +39,16 @@ const useStyles = (theme) =>({
         border: "0"
     },
     cardStyle: {
-        margin: "5vh",
+        margin: "1vh",
+        height: "7vh",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        padding: "1vh",
+        fontSize:"1.5vh",
+        textTransform: "capitalize",
+    },
+    moreIcon: {
     }
 });
 
@@ -88,14 +100,20 @@ class Vendor extends Component {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
-            <VendorSignup vendorPage={this.state.vendorPage} vendorName={this.state.vendorName} />
+            <Paper></Paper>
             {
                 this.state.products.map((product) => (
                 <Button component={Link} to ="/vendor" className={classes.unstyledButton}>
-                    <Card variant="outlined" className={classes.cardStyle}>{product.productName}</Card>
+                    <Card variant="outlined" className={classes.cardStyle}>
+                        {product.productName}
+                        <IconButton className = {classes.moreIcon}>
+                            <MoreHorizIcon />
+                        </IconButton>
+                    </Card>
                 </Button>
             ))
             }
+            <VendorSignup vendorPage={this.state.vendorPage} vendorName={this.state.vendorName} />
       </div>
     );
   }
