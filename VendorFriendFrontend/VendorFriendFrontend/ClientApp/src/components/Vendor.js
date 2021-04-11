@@ -52,7 +52,7 @@ function VendorSignup(vendorPage, vendorName)
         <Button variant="contained" color="primary" component={Link} to="/register_vendor" style={classes.buttonStyle}>
         Signup for an event as a vendor
         </Button>
-        <Button variant="contained" color="primary" component={Link} to="/vendor" style={classes.buttonStyle2}>
+        <Button variant="contained" color="primary" component={Link} to="/browse" style={classes.buttonStyle2}>
         I already have a vendor account
         </Button>
         <Button variant="contained" color="primary" component={Link} to="/" style={classes.backButtonStyle}>

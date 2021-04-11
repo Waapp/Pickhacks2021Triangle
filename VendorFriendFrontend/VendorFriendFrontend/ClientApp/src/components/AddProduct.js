@@ -127,7 +127,10 @@ class AddProduct extends Component {
       const data = await responseTwo.json();
       console.log(data)
       this.setState({ products: data, loading: false });
-  }
+      if(responseTwo.ok == true){
+        this.props.history.push(`/vendorPage/${vendorName}`)
+      };
+    }
 }
 
 export default withStyles(useStyles)(AddProduct);
