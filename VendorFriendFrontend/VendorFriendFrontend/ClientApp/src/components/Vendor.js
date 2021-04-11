@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
 import PropTypes from 'prop-types';
-import { makeStyles, withStyles} from '@material-ui/core/styles';
+import { makeStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card'
 import './Home.css';
 
-const useStyles = theme => ({
+const useStyles = (theme) =>({
     divStyle: {
         display: "flex",
         flexDirection: "column",
@@ -25,14 +25,40 @@ const useStyles = theme => ({
     },
     unstyledButton: {
         border: "0"
+    },
+    cardStyle: {
+        margin: "5vh",
     }
 });
 
+function VendorSignup(vendorPage)
+{
+    const classes = useStyles();
+    console.log(classes)
+    if(vendorPage.vendorPage == false)
+    {
+    return(
+    <div style={classes.divStyle}>
+        <Button variant="contained" color="primary" component={Link} to="/register_vendor" style={classes.buttonStyle}>
+        Signup for an event as a vendor
+        </Button>
+        <Button variant="contained" color="primary" component={Link} to="/vendor" style={classes.buttonStyle}>
+        I already have a vendor account
+        </Button>
+        <Button variant="contained" color="primary" component={Link} to="/" style={classes.buttonStyle}>
+        Back
+        </Button>
+    </div>
+    )
+    }else{
+        return(<div></div>)
+    }
+}
 class Vendor extends Component {
     static displayName = Vendor.name;
     constructor(props) {
         super(props);
-        this.state = {products: [], loading: true, vendorName: this.props.match.params.vendorName};
+        this.state = {vendorPage: false, products: [], loading: true, vendorName: this.props.match.params.vendorName};
       }
     
     componentDidMount() {
@@ -40,6 +66,7 @@ class Vendor extends Component {
         {
             console.log(this.state.vendorName)
             this.populateProducts(this.state.vendorName)
+            this.state.vendorPage=true
         }
     }
 
@@ -47,15 +74,7 @@ class Vendor extends Component {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
-            <Button variant="contained" color="primary" component={Link} to="/register_vendor" className={classes.buttonStyle}>
-            Signup for a vendor account
-            </Button>
-            <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle}>
-            I already have a vendor account
-            </Button>
-            <Button variant="contained" color="primary" component={Link} to="/" className={classes.backButtonStyle}>
-            Back
-            </Button>
+            <VendorSignup vendorPage={this.state.vendorPage} />
             {
                 this.state.products.map((product) => (
                 <Button component={Link} to ="/vendor" className={classes.unstyledButton}>

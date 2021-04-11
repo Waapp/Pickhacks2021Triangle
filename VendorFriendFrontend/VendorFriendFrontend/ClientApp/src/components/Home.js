@@ -31,7 +31,7 @@ render() {
           <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.buttonStyle}>
                 I am an attendee
           </Button>
-            <Button variant="contained" color="primary" component={Link} to="/vendorlogin" className={classes.buttonStyle}>
+            <Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.buttonStyle}>
                 I am a vendor
           </Button>
           <Button variant="contained" color="primary" component={Link} to="/register_event" className={classes.buttonStyle}>

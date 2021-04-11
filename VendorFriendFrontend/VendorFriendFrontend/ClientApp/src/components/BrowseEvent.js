@@ -67,7 +67,7 @@ render() {
                 this.state.loading ? 
                 <p> <br></br>Try searching for an event!</p>:
                 this.state.vendors.map((vendor) => (
-                    <Card variant="outlined" className={classes.cardStyle} component={Link} to={`/vendor/${vendor.vendorName}`}>{`${vendor.vendorName}: ${vendor.vendorDescription}`}</Card>
+                    <Card variant="outlined" className={classes.cardStyle} component={Link} to={`/vendorPage/${vendor.vendorName}`}>{`${vendor.vendorName}: ${vendor.vendorDescription}`}</Card>
                 ))
                 }
                 

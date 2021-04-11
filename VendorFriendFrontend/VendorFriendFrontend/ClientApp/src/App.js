@@ -38,11 +38,10 @@ export default class App extends Component {
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
         <Route exact path='/vendor' component={Vendor} />
-        <Route exact path='/vendorlogin' component={VendorLogin} />
         <Route exact path='/register_vendor' component={VendorRequest} />
         <Route path='/register_event' component={EventRequest} />
         <Route path='/register_for_event/:eventName' component={VendorRequestForm} />
-        <Route path='/vendor/:vendorName' component={Vendor} />
+        <Route path='/vendorPage/:vendorName' component={Vendor} />
         <Route path='/browse' component={BrowseEvent} />
         </Layout>
       </MuiThemeProvider>
