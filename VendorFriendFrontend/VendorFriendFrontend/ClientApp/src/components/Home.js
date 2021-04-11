@@ -28,16 +28,16 @@ render() {
     const { classes } = this.props;
     return (
         <div className={classes.divStyle}>
-          <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.buttonStyle}>
+            <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.buttonStyle}>
                 I am an attendee
-          </Button>
+            </Button>
             <Button variant="contained" color="primary" component={Link} to="/vendorlogin" className={classes.buttonStyle}>
                 I am a vendor
-          </Button>
-          <Button variant="contained" color="primary" component={Link} to="/register_event" className={classes.buttonStyle}>
+            </Button>
+            <Button variant="contained" color="primary" component={Link} to="/register_event" className={classes.buttonStyle}>
                 I am an event coordinator
-          </Button>
-      </div>
+            </Button>
+        </div>
     );
   }
 }
