@@ -29,9 +29,7 @@ export class NavMenu extends Component {
       <header>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton component={Link} to="/fetch-data">
-                        <MenuIcon />
-                    </IconButton>
+                    
                 </Toolbar>
             </AppBar>
       </header>

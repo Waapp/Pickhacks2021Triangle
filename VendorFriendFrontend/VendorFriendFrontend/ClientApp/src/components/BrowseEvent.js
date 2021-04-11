@@ -14,6 +14,7 @@ const useStyles = theme => ({
         flexDirection: "column",
     },
     paperStyle: {
+		background: "lightgrey",
         display: "flex",
         flexDirection: "column",
         marginTop:"2vh",

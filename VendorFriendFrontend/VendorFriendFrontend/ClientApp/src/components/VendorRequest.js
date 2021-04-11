@@ -15,17 +15,23 @@ const useStyles = theme => ({
     buttonStyle: {
         margin: "4vh",
         height: "10vh",
-        marginBottom: "20%",
+        marginBottom: "10%",
         fontSize: "3",
         Wrap: "True"
     },
     paperStyle: {
+		background: "lightgrey",
         margin: "4vh",
         padding: "1vh",
         fontSize: "2vh",
         width: "fit-content",
         display: "flex",
         flexDirection: "column",
+    },
+	backButtonStyle: {
+        position: "absolute",
+        bottom: "5%",
+        left: "5%"
     }
 });
 
@@ -63,6 +69,9 @@ class VendorRequest extends Component {
                     <Card variant="outlined" className={classes.cardStyle} component={Link} to={`/register_for_event/${event.eventName}`}>{event.eventName}</Card>
                 ))
                 }
+				<Button variant="contained" color="primary" component={Link} to="/vendor" className={classes.backButtonStyle}>
+           		Back
+            	</Button>
             </div>
         );
     }

@@ -6,7 +6,6 @@ import Attendee from './components/Attendee';
 import Products from './components/Products';
 import AddProduct from './components/AddProduct';
 import { createMuiTheme, makeStyles, MuiThemeProvider, withStyles} from '@material-ui/core/styles';
-import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Vendor from './components/Vendor';
@@ -38,7 +37,6 @@ export default class App extends Component {
 		<Route path='/addproduct/:vendorName' component={AddProduct} />
         <Route path='/attendee' component={Attendee} />
         <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
         <Route exact path='/vendor' component={Vendor} />
         <Route exact path='/register_vendor' component={VendorRequest} />
         <Route path='/register_event' component={EventRequest} />

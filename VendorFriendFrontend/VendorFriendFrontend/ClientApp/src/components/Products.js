@@ -23,6 +23,7 @@ const useStyles = theme => ({
         transform: "translate(-50%, -50%)",
     },
     paperStyle: {
+		background: "lightgray",
         marginBottom: "10%",
         padding: "1vh",
         fontSize: "2vh",
