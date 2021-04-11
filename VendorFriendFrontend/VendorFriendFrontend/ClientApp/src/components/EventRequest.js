@@ -11,9 +11,8 @@ const useStyles = theme => ({
         flexDirection: "column",
     },
     buttonStyle: {
-      margin: "4vh",
-      height: "10vh",
-      marginTop: "10%",
+	  background: "linear-gradient(10deg, purple 20%, blue 100%)",
+      height: "5vh",
       fontSize: "3",
       Wrap: "True"
     },
@@ -27,9 +26,14 @@ const useStyles = theme => ({
     },
     backButtonStyle: {
       position: "absolute",
-      bottom: "5%",
-      left: "5%"
-    }
+      top: "0%",
+      left: "0%",
+	  transform: "translate(50%, 50%)"
+    },
+	textFieldStyle: {
+		margin: "4px",
+		padding: "2px"
+	}
 });
 
 class EventRequest extends Component {
@@ -91,16 +95,16 @@ class EventRequest extends Component {
         return (
             <div className={classes.divStyle}>
                 <Paper elevation={3} className={classes.paperStyle}>Enter your event information here:
-                <TextField placeholder={this.state.eventName} onChange={this.handleEventName} />
-                <TextField placeholder={this.state.eventLocation} onChange={this.handleLocation} />
-                <TextField placeholder={this.state.eventDescription} onChange={this.handleDescription} />
-                <TextField placeholder={this.state.eventHours} onChange={this.handleHours} />
-                <TextField placeholder={this.state.ownerName} onChange={this.handleOwner} />
+                <TextField className={classes.textFieldStyle} placeholder={this.state.eventName} onChange={this.handleEventName} />
+                <TextField className={classes.textFieldStyle} placeholder={this.state.eventLocation} onChange={this.handleLocation} />
+                <TextField className={classes.textFieldStyle} placeholder={this.state.eventDescription} onChange={this.handleDescription} />
+                <TextField className={classes.textFieldStyle} placeholder={this.state.eventHours} onChange={this.handleHours} />
+                <TextField className={classes.textFieldStyle} placeholder={this.state.ownerName} onChange={this.handleOwner} />
                 </Paper>
-                <Button variant="contained" color="primary" onClick={this.handleSubmit}>
+                <Button className={classes.buttonStyle} type="submit" variant="contained" color="primary" onClick={this.handleSubmit}>
                 Submit Event
                 </Button>
-                <Button variant="contained" color="primary" component={Link} to="/" className={classes.backButtonStyle}>
+                <Button variant="contained" color="tertiary" component={Link} to="/" className={classes.backButtonStyle}>
                 Back
                 </Button>
             </div>

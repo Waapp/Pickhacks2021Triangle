@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
-import PropTypes from 'prop-types';
 import { makeStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card'
@@ -12,16 +11,26 @@ const useStyles = (theme) =>({
         flexDirection: "column",
     },
     buttonStyle: {
+        background: "linear-gradient(10deg, purple 20%, blue 100%)",
         margin: "4vh",
         height: "10vh",
         marginBottom: "10%",
         fontSize: "3",
         Wrap: "True"
     },
+    buttonStyle2: {
+		background: "linear-gradient(10deg, blue 20%, purple 100%)",
+        margin: "4vh",
+        height: "10vh",
+        marginBottom: "10%",
+        fontSize: "3",
+        Wrap: "True"
+	},
     backButtonStyle: {
         position: "absolute",
-        bottom: "5%",
-        left: "5%"
+        top: "0%",
+        left: "0%",
+        transform: "translate(50%, 50%)"
     },
     unstyledButton: {
         border: "0"
@@ -42,13 +51,13 @@ function VendorSignup(vendorPage)
         <Button variant="contained" color="primary" component={Link} to="/register_vendor" style={classes.buttonStyle}>
         Signup for an event as a vendor
         </Button>
-        <Button variant="contained" color="primary" component={Link} to="/vendor" style={classes.buttonStyle}>
+        <Button variant="contained" color="primary" component={Link} to="/vendor" style={classes.buttonStyle2}>
         I already have a vendor account
         </Button>
         <Button variant="contained" color="primary" component={Link} to="/addproduct" style={classes.buttonStyle}>
         Add a product
         </Button>
-        <Button variant="contained" color="primary" component={Link} to="/" style={classes.backButtonStyle}>
+        <Button variant="contained" color="tertiary" component={Link} to="/" style={classes.backButtonStyle}>
         Back
         </Button>
     </div>

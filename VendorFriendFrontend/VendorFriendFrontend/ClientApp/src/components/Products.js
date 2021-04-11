@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
-import PropTypes from 'prop-types';
 import { makeStyles, withStyles} from '@material-ui/core/styles';
-import TextField from '@material-ui/core/Input';
-import InputProps from '@material-ui/core/Input';
 import Card from '@material-ui/core/Card'
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase'
@@ -30,13 +27,11 @@ const useStyles = theme => ({
         display: "flex",
         flexDirection: "column",
     },
-    cardStyle: {
-        
-    },
     backButtonStyle: {
         position: "absolute",
-        bottom: "5%",
-        left: "5%"
+        top: "0%",
+        left: "0%",
+		transform: "translate(50%, 50%)"
     }
 });
 
@@ -74,15 +69,12 @@ render() {
                 </Paper>
 
                 {
-                this.state.loading ? 
-                <p><em>Loading...</em></p>:
-                
                 this.state.vendors.map((vendor) => (
                     <Card variant="outlined" className={classes.cardStyle}>{vendor.vendorName}</Card>
                 ))
                 }
             </form>
-            <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.backButtonStyle}>
+            <Button variant="contained" color="tertiary" component={Link} to="/attendee" className={classes.backButtonStyle}>
             Back
             </Button>
         </div>

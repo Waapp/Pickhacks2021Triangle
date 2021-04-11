@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
-import PropTypes from 'prop-types';
 import { makeStyles, withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
@@ -28,8 +27,9 @@ const useStyles = theme => ({
     },
     backButtonStyle: {
         position: "absolute",
-        bottom: "5%",
-        left: "5%"
+        top: "0%",
+        left: "0%",
+		transform: "translate(50%, 50%)"
     },
     cardStyle: {
         margin: "5%",
@@ -73,7 +73,7 @@ render() {
                 }
                 
             </form>
-            <Button variant="contained" color="primary" component={Link} to="/attendee" className={classes.backButtonStyle}>
+            <Button variant="contained" color="tertiary" component={Link} to="/attendee" className={classes.backButtonStyle}>
             Back
             </Button>
         </div>
@@ -92,7 +92,7 @@ render() {
     }
     const response = await fetch(`api/Events/${eventName}`, requestOptions);
     const data = await response.json();
-    if(data[0] != undefined)
+    if(data[0] !== undefined)
     {
         
         console.log(data[0].eventId)

@@ -11,6 +11,7 @@ const useStyles = theme => ({
         flexDirection: "column",
     },
     buttonStyle: {
+		
       margin: "4vh",
       height: "10vh",
       marginTop: "10%",
@@ -27,9 +28,14 @@ const useStyles = theme => ({
     },
     backButtonStyle: {
       position: "absolute",
-      bottom: "5%",
-      left: "5%"
-    }
+      top: "0%",
+      left: "0%",
+	  transform: "translate(50%, 50%)"
+    },
+	textFieldStyle: {
+		margin: "4px",
+		padding: "2px"
+	}
 });
 
 class AddProduct extends Component {
@@ -82,15 +88,15 @@ class AddProduct extends Component {
         return (
             <div className={classes.divStyle}>
                 <Paper elevation={3} className={classes.paperStyle}>Enter your product information here:
-                <TextField placeholder={this.state.productName} onChange={this.handleproductName} />
-                <TextField placeholder={this.state.productPrice} onChange={this.handlePrice} />
-                <TextField placeholder={this.state.productDescription} onChange={this.handleDescription} />
-                <TextField placeholder={this.state.ownerName} onChange={this.handleOwner} />
+                <TextField className={classes.textFieldStyle} placeholder={this.state.productName} onChange={this.handleproductName} />
+                <TextField className={classes.textFieldStyle} placeholder={this.state.productPrice} onChange={this.handlePrice} />
+                <TextField className={classes.textFieldStyle} placeholder={this.state.productDescription} onChange={this.handleDescription} />
+                <TextField className={classes.textFieldStyle} placeholder={this.state.ownerName} onChange={this.handleOwner} />
                 </Paper>
-                <Button variant="contained" color="primary" onClick={this.handleSubmit}>
+                <Button type="submit" variant="contained" color="primary" onClick={this.handleSubmit}>
                 Add product
                 </Button>
-                <Button variant="contained" color="primary" component={Link} to="/" className={classes.backButtonStyle}>
+                <Button variant="contained" color="tertiary" component={Link} to="/" className={classes.backButtonStyle}>
                 Back
                 </Button>
             </div>

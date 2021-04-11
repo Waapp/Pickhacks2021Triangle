@@ -10,16 +10,26 @@ const useStyles = theme => ({
         flexDirection: "column",
     },
     buttonStyle: {
+		background: "linear-gradient(10deg, purple 20%, blue 100%)",
         margin: "4vh",
         height: "10vh",
         marginBottom: "10%",
         fontSize: "3",
         Wrap: "True"
     },
+	buttonStyle2: {
+		background: "linear-gradient(10deg, blue 20%, purple 100%)",
+        margin: "4vh",
+        height: "10vh",
+        marginBottom: "10%",
+        fontSize: "3",
+        Wrap: "True"
+	},
     backButtonStyle: {
         position: "absolute",
-        bottom: "5%",
-        left: "5%"
+        top: "0%",
+        left: "0%",
+		transform: "translate(50%, 50%)"
     }
 });
 
@@ -33,10 +43,10 @@ render() {
             <Button variant="contained" color="primary" component={Link} to="/products" className={classes.buttonStyle}>
             Search Products
             </Button>
-            <Button variant="contained" color="primary" component={Link} to="/browse" className={classes.buttonStyle}>
+            <Button variant="contained" color="primary" component={Link} to="/browse" className={classes.buttonStyle2}>
             Browse Vendors
             </Button>
-            <Button variant="contained" color="primary" component={Link} to="/" className={classes.backButtonStyle}>
+            <Button variant="contained" color="tertiary" component={Link} to="/" className={classes.backButtonStyle}>
             Back
             </Button>
       </div>
